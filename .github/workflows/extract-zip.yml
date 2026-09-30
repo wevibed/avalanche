@@ -95,7 +95,7 @@ jobs:
             ! -name "$(basename "$ZIP_FILE")" \
             -exec rm -rf {} +
 
-          echo "Copying new project..."
+          echo "Copying FAA'S Closet project..."
 
           cp -a "$PROJECT_ROOT"/. .
 
@@ -174,10 +174,7 @@ jobs:
 
           git add -A
 
-          # IMPORTANT:
-          # Never include this workflow in the commit.
-          # GitHub's Actions token does not have permission
-          # to create/update workflow files.
+          # Do not include this workflow in the commit.
           git reset -- .github/workflows/extract-zip.yml || true
 
           echo ""
@@ -199,7 +196,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Deploy Avalanche Collections website"
+          git commit -m "Deploy FAA'S Closet website"
 
           echo ""
           echo "=== PUSHING WEBSITE ==="
